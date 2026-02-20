@@ -1,0 +1,216 @@
+{
+  "kind": "build_request",
+  "title": "Create customer ledger management application",
+  "projectName": "Customer Ledger",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model to store customer records with fields: customer ID (auto-generated), name, email, phone number, and creation timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a app to maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer type is defined with id, name, email, phone, and createdAt fields",
+        "Customer ID is automatically generated and unique",
+        "All customer records persist across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a backend data model to store ledger transactions with fields: transaction ID (auto-generated), customer ID (reference), transaction date, description, debit amount, credit amount, balance, and creation timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Transaction type is defined with all required fields",
+        "Transaction ID is automatically generated and unique",
+        "Each transaction links to a valid customer ID",
+        "All transactions persist across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement backend functions to create, read, update, and delete customer records",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "addCustomer function creates new customer records",
+        "getCustomer function retrieves customer by ID",
+        "getAllCustomers function returns all customers",
+        "updateCustomer function modifies existing customer details",
+        "deleteCustomer function removes a customer record"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend functions to create and retrieve ledger transactions, including ability to get all transactions for a specific customer and calculate running balance",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "addTransaction function creates new transaction records with automatic balance calculation",
+        "getTransactionsByCustomer function retrieves all transactions for a given customer ID",
+        "getCustomerBalance function returns current balance for a customer",
+        "getAllTransactions function returns all transactions across all customers"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a customer management interface with a list view showing all customers and their current balances, with options to add, edit, and delete customers",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customers are displayed in a table or list format",
+        "Each customer row shows name, email, phone, and current balance",
+        "Add Customer button opens a form to create new customers",
+        "Edit and Delete actions are available for each customer",
+        "Customer list updates in real-time after any changes"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a ledger transaction interface for each customer showing transaction history with columns for date, description, debit, credit, and running balance",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking on a customer navigates to their transaction view",
+        "Transactions are displayed in chronological order",
+        "Each transaction row shows date, description, debit amount, credit amount, and balance",
+        "Add Transaction button opens a form to record new transactions",
+        "Running balance is clearly visible for each transaction"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement forms for adding and editing customers with validation for required fields (name, email, phone)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer form includes inputs for name, email, and phone number",
+        "Name field is required and validated",
+        "Email field is validated for proper email format",
+        "Phone field accepts valid phone number formats",
+        "Form shows error messages for invalid inputs",
+        "Form can be submitted to create or update customer records"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement a form for adding transactions with fields for customer selection, date, description, transaction type (debit/credit), and amount",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "maintain customers ledger"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Transaction form includes date picker for transaction date",
+        "Description field accepts text input",
+        "Transaction type selector allows choosing between debit and credit",
+        "Amount field accepts numeric input with proper formatting",
+        "Form validates that amount is a positive number",
+        "Form can be submitted to create new transaction records"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Design a professional, modern UI theme with warm earth tones (terracotta, beige, olive green) and clean typography that conveys trust and financial stability, suitable for a business ledger application",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette uses warm, professional tones throughout the application",
+        "Typography is clean and readable with appropriate hierarchy",
+        "Layout provides clear visual separation between customer list and transaction details",
+        "Design conveys professionalism appropriate for financial record-keeping",
+        "UI elements are consistently styled across all views"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Render generated images as static assets in frontend/public/assets/generated directory",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated ledger icon is placed in frontend/public/assets/generated",
+        "Icon is properly referenced in the application header or navigation",
+        "Images are served as static assets without backend routing"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use single-actor architecture for all Motoko backend logic",
+    "Do not modify immutable frontend paths: useInternetIdentity.ts, useInternetIdentity.tsx, useActor.ts, main.tsx, and components/ui directory",
+    "Use React, Tailwind CSS, and React Query for all frontend implementation"
+  ],
+  "nonGoals": [
+    "Multi-currency support",
+    "Advanced reporting and analytics",
+    "PDF export functionality",
+    "Email notifications for transactions",
+    "User roles and permissions beyond Internet Identity authentication"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional ledger book icon with warm earth tones, suitable for application header (ledger-icon.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

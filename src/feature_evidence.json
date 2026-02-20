@@ -1,0 +1,79 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-forms-for-adding-and-editing-customers-with-validation-for-required-fields-name-email-phone",
+      "featureTitle": "Implement forms for adding and editing customers with validation for required fields (name, email, phone)",
+      "files": [
+        "frontend/src/components/CustomerDialog.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-form-for-adding-transactions-with-fields-for-customer-selection-date-description-transaction-type-debit-credit-and-amount",
+      "featureTitle": "Implement a form for adding transactions with fields for customer selection, date, description, transaction type (debit/credit), and amount",
+      "files": [
+        "frontend/src/components/TransactionDialog.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-professional-modern-ui-theme-with-warm-earth-tones-terracotta-beige-olive-green-and-clean-typography-that-conveys-trust-and-financial-stability-suitable-for-a-business-ledger-application",
+      "featureTitle": "Design a professional, modern UI theme with warm earth tones (terracotta, beige, olive green) and clean typography that conveys trust and financial stability, suitable for a business ledger application",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-generated-images-as-static-assets-in-frontend-public-assets-generated-directory",
+      "featureTitle": "Render generated images as static assets in frontend/public/assets/generated directory",
+      "files": [
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

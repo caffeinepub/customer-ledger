@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up routing with TanStack Router, theme provider, and toast notifications for the customer ledger app.",
+  "frontend/src/components/Layout.tsx": "Layout component providing consistent header with ledger icon and navigation, main content area with Outlet for routes, and footer with attribution.",
+  "frontend/src/pages/CustomersPage.tsx": "Customer list page displaying all customers in a table with actions to add, edit, delete, and view individual customer ledgers.",
+  "frontend/src/pages/CustomerLedgerPage.tsx": "Individual customer ledger page showing customer details, current balance, and complete transaction history with ability to add new transactions.",
+  "frontend/src/components/CustomerDialog.tsx": "Dialog component with form for creating new customers or editing existing ones, includes validation for name, email, and phone fields.",
+  "frontend/src/components/DeleteCustomerDialog.tsx": "Alert dialog component for confirming customer deletion with warning about removing associated transactions.",
+  "frontend/src/components/TransactionDialog.tsx": "Dialog component with form for adding new transactions, includes date picker, description, transaction type selector, and amount input with validation.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including customer CRUD operations and transaction management with proper cache invalidation.",
+  "frontend/src/index.css": "Global styles with warm earth tone OKLCH color system (terracotta, beige, olive green) for both light and dark modes, conveying professional financial stability.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom fonts, warm earth tone color palette, enhanced shadows, and design tokens for professional ledger aesthetic."
+}

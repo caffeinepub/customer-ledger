@@ -1,0 +1,150 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Customer Ledger Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Create customer management interface with list view, add/edit/delete functionality",
+      "acceptanceCriteria": [
+        "Customers are displayed in a table or list format",
+        "Each customer row shows name, email, phone, and current balance",
+        "Add Customer button opens a form to create new customers",
+        "Edit and Delete actions are available for each customer",
+        "Customer list updates in real-time after any changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CustomerList.tsx",
+          "operation": "create",
+          "description": "Create CustomerList component that fetches and displays all customers using getAllCustomers backend method with React Query. Display customers in a table with columns for name, email, phone, and current balance. Include Add Customer, Edit, and Delete action buttons for each row. Use shadcn/ui Table and Button components for consistent styling."
+        },
+        {
+          "path": "frontend/src/hooks/useCustomers.ts",
+          "operation": "create",
+          "description": "Create React Query hook that wraps getAllCustomers backend method. Provides queries for fetching customer list and mutations for create, update, and delete operations. Handle loading and error states appropriately."
+        },
+        {
+          "path": "frontend/src/hooks/useTransactions.ts",
+          "operation": "create",
+          "description": "Create React Query hook that wraps getTransactionsByCustomer backend method. Provides query for fetching customer transactions and mutation for creating new transactions. Calculate and return current balance from transaction history."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create ledger transaction interface showing transaction history with running balance",
+      "acceptanceCriteria": [
+        "Clicking on a customer navigates to their transaction view",
+        "Transactions are displayed in chronological order",
+        "Each transaction row shows date, description, debit amount, credit amount, and balance",
+        "Add Transaction button opens a form to record new transactions",
+        "Running balance is clearly visible for each transaction"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TransactionList.tsx",
+          "operation": "create",
+          "description": "Create TransactionList component that accepts customerId prop and fetches transactions using getTransactionsByCustomer backend method. Display transactions in a table with columns for date, description, debit, credit, and running balance. Sort transactions chronologically. Include Add Transaction button that opens transaction form. Use shadcn/ui Table component for layout."
+        },
+        {
+          "path": "frontend/src/pages/CustomerLedger.tsx",
+          "operation": "create",
+          "description": "Create CustomerLedger page that displays customer details and their transaction list. Accept customer ID from route params. Show customer name, email, phone at the top, followed by TransactionList component. Include back navigation to customer list."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement customer form with validation for name, email, and phone",
+      "acceptanceCriteria": [
+        "Customer form includes inputs for name, email, and phone number",
+        "Name field is required and validated",
+        "Email field is validated for proper email format",
+        "Phone field accepts valid phone number formats",
+        "Form shows error messages for invalid inputs",
+        "Form can be submitted to create or update customer records"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CustomerForm.tsx",
+          "operation": "create",
+          "description": "Create CustomerForm component with fields for name, email, and phone. Implement validation: name required, email format validation, phone number format validation. Use react-hook-form for form management and zod for schema validation. Display error messages for invalid inputs. Accept mode prop to support both create and edit operations. Use shadcn/ui Input, Button, and Form components. Call createCustomer or updateCustomer backend methods via useCustomers hook on submit."
+        },
+        {
+          "path": "frontend/src/components/CustomerDialog.tsx",
+          "operation": "create",
+          "description": "Create CustomerDialog component that wraps CustomerForm in a shadcn/ui Dialog. Support both add and edit modes. Accept customer data prop for edit mode. Handle dialog open/close state and form submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement transaction form with date, description, type, and amount fields",
+      "acceptanceCriteria": [
+        "Transaction form includes date picker for transaction date",
+        "Description field accepts text input",
+        "Transaction type selector allows choosing between debit and credit",
+        "Amount field accepts numeric input with proper formatting",
+        "Form validates that amount is a positive number",
+        "Form can be submitted to create new transaction records"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TransactionForm.tsx",
+          "operation": "create",
+          "description": "Create TransactionForm component with fields for date (date picker), description (text input), transaction type (debit/credit selector), and amount (numeric input). Implement validation: amount must be positive number. Use react-hook-form and zod for validation. Calculate balance based on transaction type and previous balance. Call createTransaction backend method via useTransactions hook on submit. Use shadcn/ui Input, Select, Button, and Calendar/DatePicker components."
+        },
+        {
+          "path": "frontend/src/components/TransactionDialog.tsx",
+          "operation": "create",
+          "description": "Create TransactionDialog component that wraps TransactionForm in a shadcn/ui Dialog. Accept customerId prop to associate transaction with customer. Handle dialog open/close state and form submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Design professional UI theme with warm earth tones and clean typography",
+      "acceptanceCriteria": [
+        "Color palette uses warm, professional tones throughout the application",
+        "Typography is clean and readable with appropriate hierarchy",
+        "Layout provides clear visual separation between customer list and transaction details",
+        "Design conveys professionalism appropriate for financial record-keeping",
+        "UI elements are consistently styled across all views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update CSS variables to implement warm earth tone color palette with terracotta, beige, and olive green as primary colors. Define professional typography hierarchy with clean, readable fonts. Set background colors and text colors that convey financial stability and trust. Ensure consistent spacing and layout patterns across the application."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind config to include custom color palette with warm earth tones (terracotta, beige, olive green). Define custom font families for professional typography. Configure spacing and border radius values for clean, modern UI elements."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component that provides consistent page structure with header containing application title and ledger icon, main content area, and navigation. Apply warm earth tone theme colors. Include navigation between customer list and individual ledger views. Use the generated ledger icon from frontend/public/assets/generated/ledger-icon.dim_128x128.png in the header."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Render generated ledger icon as static asset in application",
+      "acceptanceCriteria": [
+        "Generated ledger icon is placed in frontend/public/assets/generated",
+        "Icon is properly referenced in the application header or navigation",
+        "Images are served as static assets without backend routing"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Reference the generated ledger icon from frontend/public/assets/generated/ledger-icon.dim_128x128.png in the application header. Display the icon alongside the application title using an img tag with appropriate alt text and styling."
+        }
+      ]
+    }
+  ]
+}

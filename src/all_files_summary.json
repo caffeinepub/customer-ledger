@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Motoko actor implementing a customer ledger backend with CRUD operations for customers and transactions, using stable maps for persistence and auto-incrementing IDs.",
+  "feature_evidence.json": "Feature evidence report documenting implemented features including customer/transaction forms, warm earth-tone UI theme, and static asset rendering with high confidence test mappings.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of all frontend files describing routing, layout, customer/transaction management pages, dialogs, React Query hooks, and warm earth-tone styling configuration.",
+  "frontend/index.css": "Tailwind CSS base styles defining OKLCH color system with warm earth tones (terracotta, beige, olive green) for light and dark modes, conveying professional financial stability.",
+  "frontend/index.html": "HTML entry point for the Customer Ledger application with root div and module script reference to main.tsx.",
+  "frontend/src/App.tsx": "Root React component configuring TanStack Router with routes for customers list and individual ledger pages, wrapped in theme provider with toast notifications.",
+  "frontend/src/components/CustomerDialog.tsx": "Dialog component with React Hook Form for creating/editing customers with validation for required fields (name, email, phone) and success/error toast notifications.",
+  "frontend/src/components/DeleteCustomerDialog.tsx": "Alert dialog component for confirming customer deletion with warning about removing associated transactions and loading state handling.",
+  "frontend/src/components/Layout.tsx": "Main layout component with header containing ledger icon and title, navigation to home, main content outlet, and footer with caffeine.ai attribution link.",
+  "frontend/src/components/TransactionDialog.tsx": "Dialog component with React Hook Form for adding transactions with date picker, description, debit/credit type selector, amount input, and automatic balance calculation.",
+  "frontend/src/hooks/useActor.ts": "React hook that manages the backend actor instance using React Query, creating authenticated or anonymous actors based on Internet Identity state and invalidating dependent queries when the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity authentication context and hooks for ICP, managing login/logout flows, identity persistence, and delegation validation with configurable AuthClient options.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for customer and transaction CRUD operations, including queries for fetching data and mutations for creating, updating, and deleting records with automatic cache invalidation.",
+  "frontend/src/index.css": "Tailwind CSS configuration with custom CSS variables defining a warm earth-tone color palette (terracotta, beige, olive) for both light and dark modes using HSL color space.",
+  "frontend/src/main.tsx": "Application entry point that sets up React root with QueryClientProvider for React Query and InternetIdentityProvider for authentication context.",
+  "frontend/src/pages/CustomerLedgerPage.tsx": "Displays individual customer details, current balance, and transaction history in a table format with options to add new transactions and navigate back to the customer list.",
+  "frontend/src/pages/CustomersPage.tsx": "Main customer management page showing a table of all customers with actions to add, edit, delete, and view ledgers for each customer account.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration with custom theme extending colors (using OKLCH color space), typography, container queries, animations for accordions, and plugins for typography, container queries, and animate.",
+  "project_state.json": "Project state file for a customer ledger management application tracking existing features (customer/transaction forms, UI theme, image rendering) and pending feature requests (backend data models, CRUD operations, customer/ledger interfaces)."
+}

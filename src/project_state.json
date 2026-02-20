@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Customer ledger management application",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional ledger book icon with warm earth tones, suitable for application header (ledger-icon.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-forms-for-adding-and-editing-customers-with-validation-for-required-fields-name-email-phone",
+      "title": "Implement forms for adding and editing customers with validation for required fields (name, email, phone)",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-form-for-adding-transactions-with-fields-for-customer-selection-date-description-transaction-type-debit-credit-and-amount",
+      "title": "Implement a form for adding transactions with fields for customer selection, date, description, transaction type (debit/credit), and amount",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-professional-modern-ui-theme-with-warm-earth-tones-terracotta-beige-olive-green-and-clean-typography-that-conveys-trust-and-financial-stability-suitable-for-a-business-ledger-application",
+      "title": "Design a professional, modern UI theme with warm earth tones (terracotta, beige, olive green) and clean typography that conveys trust and financial stability, suitable for a business ledger application",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-images-as-static-assets-in-frontend-public-assets-generated-directory",
+      "title": "Render generated images as static assets in frontend/public/assets/generated directory",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create customer ledger management app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a backend data model to store customer records with fields: customer ID (auto-generated), name, email, phone number, and creation timestamp",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create a backend data model to store ledger transactions with fields: transaction ID (auto-generated), customer ID (reference), transaction date, description, debit amount, credit amount, balance, and creation timestamp",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement backend functions to create, read, update, and delete customer records",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement backend functions to create and retrieve ledger transactions, including ability to get all transactions for a specific customer and calculate running balance",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create a customer management interface with a list view showing all customers and their current balances, with options to add, edit, and delete customers",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create a ledger transaction interface for each customer showing transaction history with columns for date, description, debit, credit, and running balance",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Customer Ledger",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
